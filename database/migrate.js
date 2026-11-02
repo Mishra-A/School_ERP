@@ -7,11 +7,24 @@ const mysql = require('mysql2/promise');
 const { mysqlTlsOptions } = require('../backend/config/mysqlTls');
 
 (async () => {
+  const isHosted = process.env.NODE_ENV === 'production'
+    || process.env.RENDER === 'true'
+    || Boolean(process.env.RENDER_SERVICE_ID || process.env.RENDER_EXTERNAL_HOSTNAME);
+  const configuredHost = (process.env.DB_HOST || '').trim();
+  if (isHosted) {
+    if (!configuredHost || ['localhost', '::1', '127.0.0.1'].includes(configuredHost.toLowerCase())) {
+      throw new Error('Set DB_HOST to the hosted MySQL hostname before running production migrations.');
+    }
+    for (const key of ['DB_USER', 'DB_PASSWORD', 'DB_NAME']) {
+      if (!process.env[key]) throw new Error(`${key} is required before running production migrations.`);
+    }
+  }
+
   const dbName = process.env.DB_NAME || 'school_erp';
   if (!/^[A-Za-z0-9_]+$/.test(dbName)) throw new Error('DB_NAME may only contain letters, numbers and underscores.');
 
   const conn = await mysql.createConnection({
-    host: process.env.DB_HOST || 'localhost',
+    host: configuredHost || 'localhost',
     port: Number(process.env.DB_PORT) || 3306,
     user: process.env.DB_USER || 'root',
     password: process.env.DB_PASSWORD || '',

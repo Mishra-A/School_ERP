@@ -50,7 +50,22 @@ function errorHandler(err, req, res, next) {
   if (mapped) return res.status(mapped.status).json({ error: mapped.message });
 
   const status = err.status || 500;
-  if (status >= 500) console.error(err);
+  if (status >= 500) {
+    console.error(JSON.stringify({
+      level: 'error',
+      event: 'request_failed',
+      method: req.method,
+      path: req.path,
+      status,
+      error: {
+        name: err.name || 'UnknownError',
+        message: err.message || String(err),
+        code: err.code || null,
+        stack: err.stack || null,
+        causes: Array.isArray(err.errors) ? err.errors.map((cause) => ({ message: cause.message, code: cause.code })) : [],
+      },
+    }));
+  }
   res.status(status).json({
     error: err.expose ? err.message : 'Something went wrong on our side. Please try again.',
     ...(err.expose && err.code ? { code: err.code } : {}),
