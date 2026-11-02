@@ -1,5 +1,6 @@
 require('dotenv').config();
 const mysql = require('mysql2/promise');
+const { mysqlTlsOptions } = require('./mysqlTls');
 
 const dbConfig = {
   host: process.env.DB_HOST || 'localhost',
@@ -11,6 +12,7 @@ const dbConfig = {
 
 const pool = mysql.createPool({
   ...dbConfig,
+  ...mysqlTlsOptions(),
   waitForConnections: true,
   connectionLimit: 10,
   dateStrings: true, // return DATE/DATETIME as plain strings, avoids timezone shifts
@@ -33,4 +35,4 @@ async function withTransaction(fn) {
   }
 }
 
-module.exports = { pool, dbConfig, withTransaction };
+module.exports = { pool, dbConfig, mysqlTlsOptions, withTransaction };

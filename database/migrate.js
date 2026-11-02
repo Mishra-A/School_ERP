@@ -4,6 +4,7 @@ require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const mysql = require('mysql2/promise');
+const { mysqlTlsOptions } = require('../backend/config/mysqlTls');
 
 (async () => {
   const dbName = process.env.DB_NAME || 'school_erp';
@@ -14,6 +15,7 @@ const mysql = require('mysql2/promise');
     port: Number(process.env.DB_PORT) || 3306,
     user: process.env.DB_USER || 'root',
     password: process.env.DB_PASSWORD || '',
+    ...mysqlTlsOptions(),
     multipleStatements: true,
   });
   try {

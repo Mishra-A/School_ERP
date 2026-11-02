@@ -2,10 +2,11 @@
 const notifications = require('./services/notifications.service');
 
 function start() {
-  const every = (ms, fn) => setInterval(() => fn().catch((e) => console.error('job failed:', e.message)), ms).unref();
-  every(5 * 60 * 1000, notifications.notifyDueNotices);   // scheduled notices reach people on their publish date
-  every(24 * 60 * 60 * 1000, notifications.cleanup);      // trim old notifications
-  setTimeout(() => notifications.notifyDueNotices().catch((e) => console.error('job failed:', e.message)), 15 * 1000).unref();
+  const reportFailure = (name, err) => console.error(`Background job "${name}" failed:`, err?.stack || err);
+  const every = (name, ms, fn) => setInterval(() => fn().catch((err) => reportFailure(name, err)), ms).unref();
+  every('notifyDueNotices', 5 * 60 * 1000, notifications.notifyDueNotices);
+  every('cleanupNotifications', 24 * 60 * 60 * 1000, notifications.cleanup);
+  setTimeout(() => notifications.notifyDueNotices().catch((err) => reportFailure('notifyDueNotices', err)), 15 * 1000).unref();
 }
 
 module.exports = { start };

@@ -6,7 +6,7 @@ const MySQLStore = require('express-mysql-session')(session);
 const helmet = require('helmet');
 const cors = require('cors');
 
-const { dbConfig } = require('./config/db');
+const { dbConfig, mysqlTlsOptions } = require('./config/db');
 const { apiLimiter, requireXhrHeader } = require('./middleware/security');
 const { notFound, errorHandler } = require('./middleware/errorHandler');
 
@@ -55,6 +55,7 @@ app.use(
       user: dbConfig.user,
       password: dbConfig.password,
       database: dbConfig.database,
+      ...mysqlTlsOptions(),
     }),
     cookie: {
       httpOnly: true,
