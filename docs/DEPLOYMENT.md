@@ -22,7 +22,9 @@ npm run db:seed
 Set `NODE_ENV=production` in `.env` for real use. This makes login cookies `secure` (HTTPS only), so only do it once HTTPS works.
 Without HTTPS (LAN only), keep `NODE_ENV=development`.
 
-For Render, set `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, and `DB_NAME` to the hosted MySQL provider's connection details. Never leave `DB_HOST=localhost` in a hosted service; production startup rejects local database hosts. Set `DB_SSL=true` when the provider requires TLS. Render is detected from its platform environment and trusts one proxy hop for secure cookies and client IP rate limiting. Configure the Render health check path as `/readyz`; `/healthz` checks only that the process is alive, while `/readyz` also verifies the database connection.
+For Render, set `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, and `DB_NAME` to the hosted MySQL provider's connection details. Never leave `DB_HOST=localhost` in a hosted service; production startup rejects local database hosts. Set `DB_SSL=true` when the provider requires TLS. Render is detected from its platform environment and trusts one proxy hop for secure cookies and client IP rate limiting. Configure the Render health check path as `/readyz`; `/healthz` checks only that the process is alive, while `/readyz` also verifies the database connection. Notification cleanup is disabled in production unless `NOTIFICATION_CLEANUP_ENABLED=true` is explicitly set.
+
+Before running `npm run db:migrate` against an existing production database, take a backup and inspect pending migrations. Migrations 001-004 are additive, but migration 003 sets `notified_at` on existing notices. Do not run `npm run db:seed` against production unless you have verified its effects and explicitly intend to create initial accounts/settings.
 
 ## 3. Keeping it running
 

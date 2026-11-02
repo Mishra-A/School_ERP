@@ -2,6 +2,11 @@
 const notifications = require('./services/notifications.service');
 
 function start() {
+  const isProduction = process.env.NODE_ENV === 'production'
+    || process.env.RENDER === 'true'
+    || Boolean(process.env.RENDER_SERVICE_ID || process.env.RENDER_EXTERNAL_HOSTNAME);
+  const cleanupEnabled = process.env.NOTIFICATION_CLEANUP_ENABLED === 'true'
+    || (!isProduction && process.env.NOTIFICATION_CLEANUP_ENABLED !== 'false');
   const reportFailure = (name, err) => {
     console.error(JSON.stringify({
       level: 'error',
@@ -18,7 +23,7 @@ function start() {
   };
   const every = (name, ms, fn) => setInterval(() => fn().catch((err) => reportFailure(name, err)), ms).unref();
   every('notifyDueNotices', 5 * 60 * 1000, notifications.notifyDueNotices);
-  every('cleanupNotifications', 24 * 60 * 60 * 1000, notifications.cleanup);
+    if (cleanupEnabled) every('cleanupNotifications', 24 * 60 * 60 * 1000, notifications.cleanup);
   setTimeout(() => notifications.notifyDueNotices().catch((err) => reportFailure('notifyDueNotices', err)), 15 * 1000).unref();
 }
 
