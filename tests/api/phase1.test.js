@@ -34,7 +34,10 @@ const finish = () => { console.log(`passed ${pass}, failed ${fail}`); };
 
 (async () => {
   const anon = client();
-  let r = await anon('GET', '/api/reports/dashboard'); ok(r.status === 401, 'unauthenticated dashboard is 401');
+  let r;
+  r = await anon('GET', '/healthz'); ok(r.status === 200 && r.json.status === 'ok', 'liveness health check');
+  r = await anon('GET', '/readyz'); ok(r.status === 200 && r.json.status === 'ready' && r.json.database === 'ok', 'database readiness health check');
+  r = await anon('GET', '/api/reports/dashboard'); ok(r.status === 401, 'unauthenticated dashboard is 401');
   r = await anon('POST', '/api/auth/login', { email: 'admin@test.local', password: 'TestPass12345' }, {}); ok(r.status === 403, 'login without the CSRF header is refused');
   r = await anon.raw('admin@test.local', 'wrong'); ok(r.status === 401 && /Incorrect/.test(r.json.error), 'wrong password');
   r = await anon.raw('nobody@test.local', 'wrong'); ok(r.status === 401 && /Incorrect/.test(r.json.error), 'unknown email gives the same answer');

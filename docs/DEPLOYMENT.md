@@ -22,6 +22,8 @@ npm run db:seed
 Set `NODE_ENV=production` in `.env` for real use. This makes login cookies `secure` (HTTPS only), so only do it once HTTPS works.
 Without HTTPS (LAN only), keep `NODE_ENV=development`.
 
+For Render, set `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, and `DB_NAME` to the hosted MySQL provider's connection details. Never leave `DB_HOST=localhost` in a hosted service; production startup rejects local database hosts. Set `DB_SSL=true` when the provider requires TLS. Render is detected from its platform environment and trusts one proxy hop for secure cookies and client IP rate limiting. Configure the Render health check path as `/readyz`; `/healthz` checks only that the process is alive, while `/readyz` also verifies the database connection.
+
 ## 3. Keeping it running
 
 Running `npm start` in a window stops when the window closes or the computer restarts. Use a process manager instead.

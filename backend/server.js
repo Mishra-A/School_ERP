@@ -6,18 +6,18 @@ const MySQLStore = require('express-mysql-session')(session);
 const helmet = require('helmet');
 const cors = require('cors');
 
-const { dbConfig, mysqlTlsOptions } = require('./config/db');
+const { pool, dbConfig, isRender, isProduction, mysqlTlsOptions } = require('./config/db');
 const { apiLimiter, requireXhrHeader } = require('./middleware/security');
 const { notFound, errorHandler } = require('./middleware/errorHandler');
 
-const isProd = process.env.NODE_ENV === 'production';
+const isProd = isProduction;
 if (!process.env.SESSION_SECRET || process.env.SESSION_SECRET.length < 32) {
   console.error('SESSION_SECRET is missing or too short (min 32 chars). See .env.example.');
   process.exit(1);
 }
 
 const app = express();
-if (isProd) app.set('trust proxy', 1); // needed for secure cookies behind a reverse proxy
+if (isProd || isRender) app.set('trust proxy', 1);
 
 app.use(
   helmet({
@@ -42,6 +42,17 @@ if (process.env.CORS_ORIGIN) {
 }
 
 app.use(express.json({ limit: '100kb' }));
+
+app.get('/healthz', (req, res) => res.json({ status: 'ok' }));
+app.get('/readyz', async (req, res) => {
+  try {
+    await pool.query('SELECT 1');
+    res.json({ status: 'ready', database: 'ok' });
+  } catch (err) {
+    console.error(JSON.stringify({ level: 'error', event: 'readiness_check_failed', code: err.code || null }));
+    res.status(503).json({ status: 'not_ready', database: 'unavailable' });
+  }
+});
 
 app.use(
   session({
@@ -102,6 +113,6 @@ app.use(errorHandler);
 
 const port = Number(process.env.PORT) || 3000;
 app.listen(port, () => {
-  console.log(`School ERP running on http://localhost:${port}`);
+  console.log(JSON.stringify({ level: 'info', event: 'server_listening', port, environment: isProd ? 'production' : 'development' }));
   require('./jobs').start();
 });
