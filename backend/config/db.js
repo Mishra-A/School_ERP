@@ -3,10 +3,11 @@ require('dotenv').config();
 const isRender = process.env.RENDER === 'true' || Boolean(process.env.RENDER_SERVICE_ID || process.env.RENDER_EXTERNAL_HOSTNAME);
 const isProduction = process.env.NODE_ENV === 'production' || isRender;
 const dbDriver = String(process.env.DB_DRIVER || (isProduction || process.env.NODE_ENV === 'test' ? 'mysql' : 'sqlite')).toLowerCase();
+const allowEphemeralSqlite = process.env.ALLOW_EPHEMERAL_SQLITE === 'true';
 
 if (!['mysql', 'sqlite'].includes(dbDriver)) throw new Error('DB_DRIVER must be either "mysql" or "sqlite".');
-if (isProduction && dbDriver === 'sqlite') {
-  throw new Error('SQLite mode is for local demos; configure DB_DRIVER=mysql for hosted deployments.');
+if (isProduction && dbDriver === 'sqlite' && !allowEphemeralSqlite) {
+  throw new Error('Production SQLite requires ALLOW_EPHEMERAL_SQLITE=true; this mode can lose data on restart.');
 }
 
 if (dbDriver === 'sqlite') {
@@ -15,6 +16,9 @@ if (dbDriver === 'sqlite') {
   const sqlitePath = process.env.SQLITE_PATH || path.join(__dirname, '..', 'data', 'school-erp.sqlite');
   const pool = createSqliteDatabase(sqlitePath);
   const dbConfig = { driver: 'sqlite', path: sqlitePath };
+  if (isRender && allowEphemeralSqlite) {
+    console.warn(JSON.stringify({ level: 'warn', event: 'ephemeral_sqlite_enabled', message: 'Render local filesystem can reset on restart or redeploy; use only for demo data.' }));
+  }
 
   async function withTransaction(fn) {
     const conn = await pool.getConnection();

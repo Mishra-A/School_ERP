@@ -28,6 +28,8 @@ npm start                     # http://localhost:3000
 
 For a local demo, leave `DB_DRIVER` unset (or set it to `sqlite`); the database is stored at `backend/data/school-erp.sqlite` and is ignored by Git. To use MySQL, set `DB_DRIVER=mysql` and configure `DB_*`. The existing MySQL database is not converted or modified by switching the driver.
 
+For a temporary Render demo with synthetic data only, explicitly set `DB_DRIVER=sqlite` and `ALLOW_EPHEMERAL_SQLITE=true`; the Render free filesystem may reset on restart or redeploy. See `docs/DEPLOYMENT.md` for the build command and limitations.
+
 Local runs use SQLite by default and do not require MySQL. Generate a session secret: `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`. To explicitly use MySQL locally, set `DB_DRIVER=mysql` and configure the `DB_*` values.
 
 The seed creates an idempotent demo roster for the current academic year (students, teachers, classes, sections and recent attendance) so the dashboards are populated. Test runs skip demo school data so API fixtures remain isolated. Demo accounts use sample credentials; change passwords before exposing the app publicly.
