@@ -9,7 +9,7 @@ const TEACHER_EDIT_WINDOW_DAYS = 7;
 
 // attended / (present + late + absent); approved leave is left out of the percentage.
 const PCT_SQL = (alias = 'a') =>
-  `ROUND(100 * SUM(${alias}.status IN ('present','late')) / NULLIF(SUM(${alias}.status IN ('present','late','absent')), 0), 1)`;
+  `ROUND(100.0 * SUM(${alias}.status IN ('present','late')) / NULLIF(SUM(${alias}.status IN ('present','late','absent')), 0), 1)`;
 
 // The user must be allowed to take this subject in this section (their own class_subjects row, or admin).
 async function assertCanMark(conn, user, sectionId, subjectId) {

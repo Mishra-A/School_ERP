@@ -1,10 +1,6 @@
 const fs = require('fs');
 if (process.env.TEST_RUN !== '1') { console.error('Run the tests with: npm test (they need their own test database).'); process.exit(1); }
-const mysql = require('mysql2/promise');
-const sql = async (q, params = []) => {
-  const c = await mysql.createConnection({ host: process.env.DB_HOST, port: Number(process.env.DB_PORT) || 3306, user: process.env.DB_USER, password: process.env.DB_PASSWORD, database: process.env.DB_NAME });
-  try { const [rows] = await c.query(q, params); return rows; } finally { await c.end(); }
-};
+const { sql, columnExists } = require('../helpers/sql');
 const B = process.env.TEST_BASE_URL;
 let pass = 0, fail = 0;
 const ok = (c, m) => { c ? pass++ : (fail++, console.log('FAIL:', m)); };
@@ -70,8 +66,10 @@ function client() {
   const patC = client(); await patC.login('pat@test.local', pat.temporaryPassword);
   let r;
 
-  const col = [String((await sql("SELECT COUNT(*) AS n FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = 'marks' AND column_name = 'is_absent'"))[0].n), String((await sql('SELECT COUNT(*) AS n FROM schema_migrations'))[0].n)];
-  ok(col[0] === '1' && Number(col[1]) >= 2, 'migrations applied ' + col.join(','));
+  const marksAbsentExists = await columnExists('marks', 'is_absent');
+  const migrationTable = process.env.DB_DRIVER === 'sqlite' ? 'app_schema_migrations' : 'schema_migrations';
+  const [migrationCount] = await sql(`SELECT COUNT(*) AS n FROM ${migrationTable}`);
+  ok(marksAbsentExists && Number(migrationCount.n) >= 2, 'migrations applied');
 
   // ===== grade scale
   r = await samC('GET', '/api/grades'); ok(r.status === 200 && r.json.grades[0].grade === 'A+' && r.json.grades.length === 7, 'default grade scale readable by anyone');

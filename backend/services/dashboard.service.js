@@ -4,7 +4,7 @@ const AppError = require('../utils/AppError');
 // Attendance % counts present + late as attended and ignores approved leave:
 //   attended / (present + late + absent) * 100
 const ATTENDANCE_PCT_SQL = `
-  ROUND(100 * SUM(status IN ('present','late')) / NULLIF(SUM(status IN ('present','late','absent')), 0), 1)`;
+  ROUND(100.0 * SUM(status IN ('present','late')) / NULLIF(SUM(status IN ('present','late','absent')), 0), 1)`;
 
 async function currentYear() {
   const [rows] = await pool.query(

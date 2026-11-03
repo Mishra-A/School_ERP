@@ -1,10 +1,6 @@
 const fs = require('fs');
 if (process.env.TEST_RUN !== '1') { console.error('Run the tests with: npm test (they need their own test database).'); process.exit(1); }
-const mysql = require('mysql2/promise');
-const sql = async (q, params = []) => {
-  const c = await mysql.createConnection({ host: process.env.DB_HOST, port: Number(process.env.DB_PORT) || 3306, user: process.env.DB_USER, password: process.env.DB_PASSWORD, database: process.env.DB_NAME });
-  try { const [rows] = await c.query(q, params); return rows; } finally { await c.end(); }
-};
+const { sql, columnExists } = require('../helpers/sql');
 const B = process.env.TEST_BASE_URL;
 const UPLOADS = process.env.UPLOAD_DIR;
 let pass = 0, fail = 0;
@@ -67,8 +63,7 @@ const PDF = (t = 'x') => ({ name: 'circular.pdf', content: Buffer.concat([Buffer
   const patC = client(); await patC.login('pat@test.local', pat.temporaryPassword);
   const pamC = client(); await pamC.login('pam@test.local', pam.temporaryPassword);
   let r;
-  const col = String((await sql("SELECT COUNT(*) AS n FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = 'fee_payments' AND column_name = 'voided_at'"))[0].n);
-  ok(col === '1', 'migration 002 applied');
+  ok(await columnExists('fee_payments', 'voided_at'), 'migration 002 applied');
 
   // ================= fee structure
   const fee = (o) => admin('POST', '/api/fees/structures', { classId: cls, feeType: 'Tuition fee', amount: 12000, dueDate: ahead(30), ...o });

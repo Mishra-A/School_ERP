@@ -3,10 +3,18 @@
 require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
-const mysql = require('mysql2/promise');
-const { mysqlTlsOptions } = require('../backend/config/mysqlTls');
+const databaseConfig = require('../backend/config/db');
 
 (async () => {
+  if (databaseConfig.dbDriver === 'sqlite') {
+    await databaseConfig.pool.query('SELECT 1');
+    console.log(`SQLite database ready at "${databaseConfig.dbConfig.path}".`);
+    databaseConfig.pool.database.close();
+    return;
+  }
+
+  const mysql = require('mysql2/promise');
+  const { mysqlTlsOptions } = databaseConfig;
   const isHosted = process.env.NODE_ENV === 'production'
     || process.env.RENDER === 'true'
     || Boolean(process.env.RENDER_SERVICE_ID || process.env.RENDER_EXTERNAL_HOSTNAME);
@@ -24,10 +32,10 @@ const { mysqlTlsOptions } = require('../backend/config/mysqlTls');
   if (!/^[A-Za-z0-9_]+$/.test(dbName)) throw new Error('DB_NAME may only contain letters, numbers and underscores.');
 
   const conn = await mysql.createConnection({
-    host: configuredHost || 'localhost',
-    port: Number(process.env.DB_PORT) || 3306,
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || '',
+    host: databaseConfig.dbConfig.host,
+    port: databaseConfig.dbConfig.port,
+    user: databaseConfig.dbConfig.user,
+    password: databaseConfig.dbConfig.password,
     ...mysqlTlsOptions(),
     multipleStatements: true,
   });
@@ -50,6 +58,7 @@ const { mysqlTlsOptions } = require('../backend/config/mysqlTls');
     }
   } finally {
     await conn.end();
+    await databaseConfig.pool.end();
   }
 })().catch((err) => {
   console.error('Migration failed:', err.message);

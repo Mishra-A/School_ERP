@@ -5,7 +5,7 @@ const fees = require('./fees.service');
 const results = require('./results.service');
 
 const round2 = (n) => Math.round(n * 100) / 100;
-const PCT = `ROUND(100 * SUM(a.status IN ('present','late')) / NULLIF(SUM(a.status IN ('present','late','absent')), 0), 1)`;
+const PCT = `ROUND(100.0 * SUM(a.status IN ('present','late')) / NULLIF(SUM(a.status IN ('present','late','absent')), 0), 1)`;
 
 // Fee collection for the current year: per class, plus what was collected in a date range, by method and by month.
 async function feeReport({ from, to }) {
@@ -45,7 +45,7 @@ async function attendanceReport({ from, to }) {
       GROUP BY s.id, c.name, s.name, c.academic_year_id ORDER BY c.name, s.name`, [from, to]);
   const [low] = await pool.query(
     `SELECT t.section_id AS sectionId, COUNT(*) AS n FROM (
-        SELECT a.student_id, a.section_id, 100 * SUM(a.status IN ('present','late')) / NULLIF(SUM(a.status IN ('present','late','absent')), 0) AS pct
+        SELECT a.student_id, a.section_id, 100.0 * SUM(a.status IN ('present','late')) / NULLIF(SUM(a.status IN ('present','late','absent')), 0) AS pct
           FROM attendance a WHERE a.attendance_date BETWEEN ? AND ? GROUP BY a.student_id, a.section_id) t
       WHERE t.pct < 75 GROUP BY t.section_id`, [from, to]);
   return { from, to, sections: rows.map((r) => ({ ...r, lowAttendance: (low.find((l) => l.sectionId === r.sectionId) || { n: 0 }).n })) };

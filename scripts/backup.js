@@ -5,6 +5,7 @@ require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const { spawn } = require('child_process');
+const { pool, dbDriver } = require('../backend/config/db');
 
 const ROOT = path.join(__dirname, '..');
 const stamp = new Date().toISOString().replace('T', '-').replace(/:/g, '').slice(0, 17);
@@ -28,27 +29,42 @@ function dump(bin) {
   });
 }
 
-(async () => {
-  fs.mkdirSync(dest, { recursive: true });
+async function dumpMysql() {
   let lastError;
   let done = false;
   for (const bin of candidates) {
     try { await dump(bin); done = true; break; } catch (e) { lastError = e; if (e.code !== 'ENOENT') break; }
   }
   if (!done) {
-    fs.rmSync(dest, { recursive: true, force: true });
     throw new Error(lastError && lastError.code === 'ENOENT'
       ? 'Could not find mysqldump. Set MYSQLDUMP_PATH in .env (XAMPP: C:\\xampp\\mysql\\bin\\mysqldump.exe).'
       : `Database backup failed: ${lastError.message}`);
+  }
+  return path.join(dest, 'database.sql');
+}
+
+(async () => {
+  fs.mkdirSync(dest, { recursive: true });
+  let databaseBackup;
+  if (dbDriver === 'sqlite') {
+    databaseBackup = path.join(dest, 'database.sqlite');
+    await pool.database.backup(databaseBackup);
+  } else {
+    databaseBackup = await dumpMysql();
   }
   let files = 0;
   if (fs.existsSync(uploads)) {
     fs.cpSync(uploads, path.join(dest, 'uploads'), { recursive: true, filter: (src) => path.basename(src) !== '.gitkeep' });
     files = fs.readdirSync(path.join(dest, 'uploads')).length;
   }
-  const size = fs.statSync(path.join(dest, 'database.sql')).size;
+  const size = fs.statSync(databaseBackup).size;
   console.log(`Backup created: ${dest}`);
-  console.log(`  database.sql  ${(size / 1024).toFixed(0)} KB`);
+  console.log(`  ${path.basename(databaseBackup)}  ${(size / 1024).toFixed(0)} KB`);
   console.log(`  uploads       ${files} files`);
   console.log('Copy this folder to another drive or cloud storage. A backup on the same computer does not survive a disk failure.');
-})().catch((err) => { console.error(`Backup failed: ${err.message}`); process.exit(1); });
+})()
+  .catch((err) => { console.error(`Backup failed: ${err.message}`); process.exitCode = 1; })
+  .finally(async () => {
+    if (dbDriver === 'sqlite') pool.database.close();
+    else await pool.end();
+  });

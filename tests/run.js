@@ -15,9 +15,11 @@ const ROOT = path.join(__dirname, '..');
 const PORT = Number(process.env.TEST_PORT) || 3999;
 const REAL_DB = process.env.DB_NAME || 'school_erp';
 const TEST_DB = `${REAL_DB.replace(/_test$/, '')}_test`;
-const filter = process.argv[2];
+const DB_DRIVER = process.argv.includes('--sqlite') || process.env.TEST_DB_DRIVER === 'sqlite' ? 'sqlite' : 'mysql';
+const SQLITE_TEST_PATH = path.join(os.tmpdir(), `school-erp-test-${process.pid}.sqlite`);
+const filter = process.argv.slice(2).find((arg) => arg !== '--sqlite');
 
-if (!TEST_DB.endsWith('_test')) { console.error('Refusing to run: test database name must end in _test.'); process.exit(1); }
+if (DB_DRIVER === 'mysql' && !TEST_DB.endsWith('_test')) { console.error('Refusing to run: test database name must end in _test.'); process.exit(1); }
 
 const suites = fs.readdirSync(path.join(__dirname, 'api')).filter((f) => f.endsWith('.test.js')).sort().filter((f) => !filter || f.includes(filter));
 if (!suites.length) { console.error('No test suites match.'); process.exit(1); }
@@ -28,13 +30,17 @@ function envFor(uploadDir) {
   const env = { ...process.env };
   for (const k of Object.keys(env)) if (k.startsWith('SMTP_')) delete env[k]; // tests must never send real email
   return {
-    ...env, NODE_ENV: 'test', PORT: String(PORT), DB_NAME: TEST_DB, UPLOAD_DIR: uploadDir, TEST_RUN: '1',
+    ...env, NODE_ENV: 'test', DB_DRIVER, SQLITE_PATH: SQLITE_TEST_PATH, PORT: String(PORT), DB_NAME: TEST_DB, UPLOAD_DIR: uploadDir, TEST_RUN: '1',
     TEST_BASE_URL: `http://localhost:${PORT}`, SESSION_SECRET: 'test-session-secret-0123456789abcdef0123456789',
     ADMIN_NAME: 'Test Admin', ADMIN_EMAIL: 'admin@test.local', ADMIN_PASSWORD: 'TestPass12345', SCHOOL_NAME: 'Test School',
   };
 }
 
 async function resetDatabase() {
+  if (DB_DRIVER === 'sqlite') {
+    for (const suffix of ['', '-wal', '-shm']) fs.rmSync(`${SQLITE_TEST_PATH}${suffix}`, { force: true });
+    return;
+  }
   const c = await mysql.createConnection({
     host: process.env.DB_HOST || 'localhost', port: Number(process.env.DB_PORT) || 3306,
     user: process.env.DB_USER || 'root', password: process.env.DB_PASSWORD || '',
@@ -79,7 +85,7 @@ async function runSuite(file) {
 }
 
 (async () => {
-  console.log(`Using test database "${TEST_DB}" on port ${PORT}\n`);
+  console.log(`Using ${DB_DRIVER === 'sqlite' ? `temporary SQLite file "${SQLITE_TEST_PATH}"` : `test database "${TEST_DB}"`} on port ${PORT}\n`);
   const results = [];
   for (const file of suites) {
     process.stdout.write(`${file.padEnd(34)}`);

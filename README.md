@@ -16,17 +16,19 @@ Stack: Node.js + Express, MySQL, vanilla JS, Bootstrap 5, Chart.js.
 
 ## Setup
 
-Requires Node 18+ and MySQL 8 (MariaDB 10.5+ also works).
+Requires Node 18+. Local development defaults to an embedded SQLite database; MySQL 8 (or MariaDB 10.5+) remains available for production and automated tests.
 
 ```bash
 npm install
-cp .env.example .env          # then fill in SESSION_SECRET, DB_*, ADMIN_*
-npm run db:migrate            # creates the database, tables and updates (safe to re-run; run it after every update)
+cp .env.example .env          # then set SESSION_SECRET and ADMIN_*
+npm run db:migrate            # initializes the selected database and applies safe schema updates
 npm run db:seed               # roles, default grade scale, first admin (safe to re-run)
 npm start                     # http://localhost:3000
 ```
 
-Generate a session secret: `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`
+For a local demo, leave `DB_DRIVER` unset (or set it to `sqlite`); the database is stored at `backend/data/school-erp.sqlite` and is ignored by Git. To use MySQL, set `DB_DRIVER=mysql` and configure `DB_*`. The existing MySQL database is not converted or modified by switching the driver.
+
+Local runs use SQLite by default and do not require MySQL. Generate a session secret: `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`. To explicitly use MySQL locally, set `DB_DRIVER=mysql` and configure the `DB_*` values.
 
 The seed creates an idempotent demo roster for the current academic year (students, teachers, classes, sections and recent attendance) so the dashboards are populated. Test runs skip demo school data so API fixtures remain isolated. Demo accounts use sample credentials; change passwords before exposing the app publicly.
 
@@ -99,8 +101,7 @@ Log in as the admin and work through **Academics** left to right:
   vulnerable dependency was replaced (`npm audit`: 0 problems).
 - **Backups**: `npm run backup` saves the database and uploads into `backups/`. **Deployment guide**: `docs/DEPLOYMENT.md` (running
   as a service, HTTPS, email, backup schedule, updating, security checklist, troubleshooting).
-- **Automated tests**: `npm test` runs about 600 checks against a throwaway `<DB_NAME>_test` database and server. It never touches real data,
-  sends no email and uses a temporary uploads folder. Run it after every update.
+- **Automated tests**: `npm test` runs about 600 checks against a throwaway `<DB_NAME>_test` MySQL database; `npm run test:sqlite` runs the same suites against a throwaway SQLite file. Both use temporary uploads, never touch the local demo database, and disable SMTP. Run them after updates.
 
 ### Known limits (not built yet)
 

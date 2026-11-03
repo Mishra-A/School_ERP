@@ -1,9 +1,5 @@
 if (process.env.TEST_RUN !== '1') { console.error('Run the tests with: npm test (they need their own test database).'); process.exit(1); }
-const mysql = require('mysql2/promise');
-const sql = async (q, params = []) => {
-  const c = await mysql.createConnection({ host: process.env.DB_HOST, port: Number(process.env.DB_PORT) || 3306, user: process.env.DB_USER, password: process.env.DB_PASSWORD, database: process.env.DB_NAME });
-  try { const [rows] = await c.query(q, params); return rows; } finally { await c.end(); }
-};
+const { sql } = require('../helpers/sql');
 const B = process.env.TEST_BASE_URL;
 let pass = 0, fail = 0;
 const ok = (c, m) => { c ? pass++ : (fail++, console.log('FAIL:', m)); };

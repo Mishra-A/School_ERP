@@ -2,13 +2,23 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
-const MySQLStore = require('express-mysql-session')(session);
 const helmet = require('helmet');
 const cors = require('cors');
 
-const { pool, dbConfig, isRender, isProduction, mysqlTlsOptions } = require('./config/db');
+const { pool, dbConfig, dbDriver, isRender, isProduction, mysqlTlsOptions } = require('./config/db');
 const { apiLimiter, requireXhrHeader } = require('./middleware/security');
 const { notFound, errorHandler } = require('./middleware/errorHandler');
+
+const sessionStore = dbDriver === 'sqlite'
+  ? new (require('./config/sqliteSessionStore'))(pool.database)
+  : new (require('express-mysql-session')(session))({
+    host: dbConfig.host,
+    port: dbConfig.port,
+    user: dbConfig.user,
+    password: dbConfig.password,
+    database: dbConfig.database,
+    ...mysqlTlsOptions(),
+  });
 
 const isProd = isProduction;
 if (!process.env.SESSION_SECRET || process.env.SESSION_SECRET.length < 32) {
@@ -60,14 +70,7 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    store: new MySQLStore({
-      host: dbConfig.host,
-      port: dbConfig.port,
-      user: dbConfig.user,
-      password: dbConfig.password,
-      database: dbConfig.database,
-      ...mysqlTlsOptions(),
-    }),
+    store: sessionStore,
     cookie: {
       httpOnly: true,
       sameSite: 'lax',

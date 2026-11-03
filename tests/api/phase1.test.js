@@ -1,9 +1,5 @@
 if (process.env.TEST_RUN !== '1') { console.error('Run the tests with: npm test (they need their own test database).'); process.exit(1); }
-const mysql = require('mysql2/promise');
-const sql = async (q, params = []) => {
-  const c = await mysql.createConnection({ host: process.env.DB_HOST, port: Number(process.env.DB_PORT) || 3306, user: process.env.DB_USER, password: process.env.DB_PASSWORD, database: process.env.DB_NAME });
-  try { const [rows] = await c.query(q, params); return rows; } finally { await c.end(); }
-};
+const { sql } = require('../helpers/sql');
 const B = process.env.TEST_BASE_URL;
 let pass = 0, fail = 0;
 const ok = (c, m) => { c ? pass++ : (fail++, console.log('FAIL:', m)); };
@@ -76,7 +72,7 @@ const finish = () => { console.log(`passed ${pass}, failed ${fail}`); };
   ok(d.upcomingExams.length === 1 && d.charts.enrollment[0].value === 2 && d.events.length === 1, 'upcoming exam, enrollment chart and events');
 
   const tara = client(); await tara.login('tara@test.local', t.temporaryPassword);
-  r = await tara('GET', '/api/reports/dashboard'); ok(r.status === 200 && r.json.stats.sections === 1 && r.json.stats.periodsToday === 1 && r.json.stats.studentsReached === 2, 'teacher dashboard ' + JSON.stringify(r.json.stats));
+  r = await tara('GET', '/api/reports/dashboard'); const [timetableRow] = await sql('SELECT day_of_week AS dayOfWeek FROM timetable'); ok(r.status === 200 && r.json.stats.sections === 1 && r.json.stats.periodsToday === 1 && r.json.stats.studentsReached === 2, 'teacher dashboard ' + JSON.stringify({ ...r.json.stats, savedDayOfWeek: timetableRow?.dayOfWeek, expectedDayOfWeek: dow }));
   const samC = client(); await samC.login('sam@test.local', sam.temporaryPassword);
   r = await samC('GET', '/api/reports/dashboard'); const s = r.json.student;
   ok(r.status === 200 && s.name === 'Sam Student' && s.attendancePercent === 100 && s.fees.remaining === 7000 && s.upcomingExams.length === 1 && s.className === 'Class 5', 'student dashboard ' + JSON.stringify(s));

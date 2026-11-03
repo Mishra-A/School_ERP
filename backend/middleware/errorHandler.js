@@ -26,9 +26,34 @@ const DUPLICATE_MESSAGES = {
 };
 
 function mapDatabaseError(err) {
-  if (err.code === 'ER_DUP_ENTRY') {
-    const key = Object.keys(DUPLICATE_MESSAGES).find((k) => String(err.sqlMessage || '').includes(k));
+  if (err.code === 'ER_DUP_ENTRY' || err.code === 'SQLITE_CONSTRAINT_UNIQUE' || err.code === 'SQLITE_CONSTRAINT_PRIMARYKEY') {
+    const detail = String(err.sqlMessage || err.message || '').toLowerCase();
+    const sqliteKeys = {
+      'users.email': 'uq_users_email',
+      'students.admission_no': 'uq_students_admission',
+      'teachers.employee_code': 'uq_teachers_code',
+      'academic_years.name': 'uq_year_name',
+      'classes.academic_year_id, classes.name': 'uq_class_year_name',
+      'sections.class_id, sections.name': 'uq_section_class_name',
+      'subjects.code': 'uq_subjects_code',
+      'class_subjects.section_id, class_subjects.subject_id': 'uq_cs_section_subject',
+      'student_enrollments.section_id, student_enrollments.roll_no': 'uq_enroll_section_roll',
+      'exams.class_id, exams.academic_year_id, exams.name': 'uq_exam_class_name',
+      'exam_schedules.exam_id, exam_schedules.subject_id': 'uq_es_exam_subject',
+      'fee_structures.academic_year_id, fee_structures.class_id, fee_structures.fee_type': 'uq_fee_class_type',
+      'fee_payments.receipt_no': 'uq_payment_receipt',
+      'grade_scale.grade': 'uq_grade',
+      'timetable.teacher_id, timetable.day_of_week, timetable.period_no': 'uq_tt_teacher_slot',
+      'timetable.section_id, timetable.day_of_week, timetable.period_no': 'uq_tt_section_slot',
+    };
+    const sqliteKey = Object.entries(sqliteKeys).find(([columns]) => detail.includes(columns))?.[1];
+    const key = sqliteKey || Object.keys(DUPLICATE_MESSAGES).find((name) => detail.includes(name));
     return { status: 409, message: key ? DUPLICATE_MESSAGES[key] : 'That value already exists.' };
+  }
+  if (err.code === 'SQLITE_CONSTRAINT_FOREIGNKEY') {
+    return err.sqlOperation === 'DELETE'
+      ? { status: 409, message: "This record is used elsewhere, so it can't be deleted." }
+      : { status: 422, message: 'One of the selected items no longer exists. Refresh and try again.' };
   }
   if (err.code === 'ER_ROW_IS_REFERENCED_2' || err.code === 'ER_ROW_IS_REFERENCED') {
     return { status: 409, message: "This record is used elsewhere, so it can't be deleted." };

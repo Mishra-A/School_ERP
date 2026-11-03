@@ -79,12 +79,12 @@ APP_URL=https://erp.yourschool.in
 
 ## 6. Backups (do this!)
 
-Your data is in two places: the **MySQL database** and the **uploads folder** (`backend/uploads`, or `UPLOAD_DIR`).
+Your data is in two places: the selected database (SQLite file or MySQL database) and the **uploads folder** (`backend/uploads`, or `UPLOAD_DIR`).
 
 ```bash
 npm run backup
 ```
-creates `backups/backup-<date-time>/database.sql` plus a copy of the uploads. If it cannot find `mysqldump`, set `MYSQLDUMP_PATH` in `.env`
+creates `backups/backup-<date-time>/database.sqlite` in SQLite mode or `database.sql` in MySQL mode, plus a copy of uploads. If it cannot find `mysqldump` for MySQL, set `MYSQLDUMP_PATH` in `.env`
 (XAMPP: `C:\xampp\mysql\bin\mysqldump.exe`).
 
 - Run it daily. Windows: Task Scheduler > Create Basic Task > Daily > "Start a program" > `cmd` with arguments
