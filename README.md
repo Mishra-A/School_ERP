@@ -101,7 +101,7 @@ Log in as the admin and work through **Academics** left to right:
   vulnerable dependency was replaced (`npm audit`: 0 problems).
 - **Backups**: `npm run backup` saves the database and uploads into `backups/`. **Deployment guide**: `docs/DEPLOYMENT.md` (running
   as a service, HTTPS, email, backup schedule, updating, security checklist, troubleshooting).
-- **Automated tests**: `npm test` runs about 600 checks against a throwaway `<DB_NAME>_test` MySQL database; `npm run test:sqlite` runs the same suites against a throwaway SQLite file. Both use temporary uploads, never touch the local demo database, and disable SMTP. Run them after updates.
+- **Automated tests**: `npm test` runs about 600 checks against a throwaway SQLite file in a temp folder; `npm test -- --mysql` runs the same suites against a throwaway MySQL database. Both use temporary uploads, never touch the real database, and disable SMTP. Run them after updates.
 
 ### Known limits (not built yet)
 

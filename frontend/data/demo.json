@@ -1,0 +1,5628 @@
+{
+  "generatedAt": "2026-11-03T08:59:57.963Z",
+  "source": "school_erp.sqlite (read-only export)",
+  "tables": {
+    "academic_years": [
+      {
+        "id": 1,
+        "name": "2026-2027",
+        "start_date": "2026-04-01",
+        "end_date": "2027-03-31",
+        "is_current": 1
+      }
+    ],
+    "roles": [
+      {
+        "id": 1,
+        "name": "admin"
+      },
+      {
+        "id": 2,
+        "name": "teacher"
+      },
+      {
+        "id": 3,
+        "name": "student"
+      },
+      {
+        "id": 4,
+        "name": "parent"
+      }
+    ],
+    "grade_scale": [
+      {
+        "id": 1,
+        "grade": "A+",
+        "min_percent": 90,
+        "max_percent": 100
+      },
+      {
+        "id": 2,
+        "grade": "A",
+        "min_percent": 80,
+        "max_percent": 89.99
+      },
+      {
+        "id": 3,
+        "grade": "B+",
+        "min_percent": 70,
+        "max_percent": 79.99
+      },
+      {
+        "id": 4,
+        "grade": "B",
+        "min_percent": 60,
+        "max_percent": 69.99
+      },
+      {
+        "id": 5,
+        "grade": "C",
+        "min_percent": 50,
+        "max_percent": 59.99
+      },
+      {
+        "id": 6,
+        "grade": "D",
+        "min_percent": 40,
+        "max_percent": 49.99
+      },
+      {
+        "id": 7,
+        "grade": "F",
+        "min_percent": 0,
+        "max_percent": 39.99
+      }
+    ],
+    "classes": [
+      {
+        "id": 1,
+        "academic_year_id": 1,
+        "name": "Class 6"
+      },
+      {
+        "id": 2,
+        "academic_year_id": 1,
+        "name": "Class 7"
+      },
+      {
+        "id": 3,
+        "academic_year_id": 1,
+        "name": "Class 8"
+      },
+      {
+        "id": 4,
+        "academic_year_id": 1,
+        "name": "Class 9"
+      }
+    ],
+    "sections": [
+      {
+        "id": 1,
+        "class_id": 1,
+        "name": "A",
+        "class_teacher_id": 1
+      },
+      {
+        "id": 2,
+        "class_id": 1,
+        "name": "B",
+        "class_teacher_id": 2
+      },
+      {
+        "id": 3,
+        "class_id": 2,
+        "name": "A",
+        "class_teacher_id": 3
+      },
+      {
+        "id": 4,
+        "class_id": 2,
+        "name": "B",
+        "class_teacher_id": 4
+      },
+      {
+        "id": 5,
+        "class_id": 3,
+        "name": "A",
+        "class_teacher_id": 5
+      },
+      {
+        "id": 6,
+        "class_id": 3,
+        "name": "B",
+        "class_teacher_id": 6
+      },
+      {
+        "id": 7,
+        "class_id": 4,
+        "name": "A",
+        "class_teacher_id": 7
+      },
+      {
+        "id": 8,
+        "class_id": 4,
+        "name": "B",
+        "class_teacher_id": 8
+      }
+    ],
+    "subjects": [
+      {
+        "id": 1,
+        "name": "Mathematics",
+        "code": "MATH"
+      },
+      {
+        "id": 2,
+        "name": "English",
+        "code": "ENG"
+      }
+    ],
+    "class_subjects": [
+      {
+        "id": 1,
+        "section_id": 1,
+        "subject_id": 1,
+        "teacher_id": 1
+      },
+      {
+        "id": 2,
+        "section_id": 1,
+        "subject_id": 2,
+        "teacher_id": 2
+      },
+      {
+        "id": 3,
+        "section_id": 2,
+        "subject_id": 1,
+        "teacher_id": 2
+      },
+      {
+        "id": 4,
+        "section_id": 2,
+        "subject_id": 2,
+        "teacher_id": 3
+      },
+      {
+        "id": 5,
+        "section_id": 3,
+        "subject_id": 1,
+        "teacher_id": 3
+      },
+      {
+        "id": 6,
+        "section_id": 3,
+        "subject_id": 2,
+        "teacher_id": 4
+      },
+      {
+        "id": 7,
+        "section_id": 4,
+        "subject_id": 1,
+        "teacher_id": 4
+      },
+      {
+        "id": 8,
+        "section_id": 4,
+        "subject_id": 2,
+        "teacher_id": 5
+      },
+      {
+        "id": 9,
+        "section_id": 5,
+        "subject_id": 1,
+        "teacher_id": 5
+      },
+      {
+        "id": 10,
+        "section_id": 5,
+        "subject_id": 2,
+        "teacher_id": 6
+      },
+      {
+        "id": 11,
+        "section_id": 6,
+        "subject_id": 1,
+        "teacher_id": 6
+      },
+      {
+        "id": 12,
+        "section_id": 6,
+        "subject_id": 2,
+        "teacher_id": 7
+      },
+      {
+        "id": 13,
+        "section_id": 7,
+        "subject_id": 1,
+        "teacher_id": 7
+      },
+      {
+        "id": 14,
+        "section_id": 7,
+        "subject_id": 2,
+        "teacher_id": 8
+      },
+      {
+        "id": 15,
+        "section_id": 8,
+        "subject_id": 1,
+        "teacher_id": 8
+      },
+      {
+        "id": 16,
+        "section_id": 8,
+        "subject_id": 2,
+        "teacher_id": 1
+      }
+    ],
+    "users": [
+      {
+        "id": 1,
+        "name": "School Admin",
+        "email": "admin@example.com",
+        "role_id": 1,
+        "is_active": 1
+      },
+      {
+        "id": 2,
+        "name": "Riya Sharma",
+        "email": "teacher1@example.com",
+        "role_id": 2,
+        "is_active": 1
+      },
+      {
+        "id": 3,
+        "name": "Amit Verma",
+        "email": "teacher2@example.com",
+        "role_id": 2,
+        "is_active": 1
+      },
+      {
+        "id": 4,
+        "name": "Aarav Singh",
+        "email": "student1@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 5,
+        "name": "Diya Patel",
+        "email": "student2@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 6,
+        "name": "Neha Kapoor",
+        "email": "teacher3@example.com",
+        "role_id": 2,
+        "is_active": 1
+      },
+      {
+        "id": 7,
+        "name": "Kabir Mehta",
+        "email": "teacher4@example.com",
+        "role_id": 2,
+        "is_active": 1
+      },
+      {
+        "id": 8,
+        "name": "Sana Iqbal",
+        "email": "teacher5@example.com",
+        "role_id": 2,
+        "is_active": 1
+      },
+      {
+        "id": 9,
+        "name": "Arjun Rao",
+        "email": "teacher6@example.com",
+        "role_id": 2,
+        "is_active": 1
+      },
+      {
+        "id": 10,
+        "name": "Meera Nair",
+        "email": "teacher7@example.com",
+        "role_id": 2,
+        "is_active": 1
+      },
+      {
+        "id": 11,
+        "name": "Dev Malhotra",
+        "email": "teacher8@example.com",
+        "role_id": 2,
+        "is_active": 1
+      },
+      {
+        "id": 12,
+        "name": "Aarav Shah",
+        "email": "demo.student001@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 13,
+        "name": "Anaya Shah",
+        "email": "demo.student002@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 14,
+        "name": "Ishaan Shah",
+        "email": "demo.student003@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 15,
+        "name": "Myra Shah",
+        "email": "demo.student004@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 16,
+        "name": "Vivaan Shah",
+        "email": "demo.student005@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 17,
+        "name": "Aadhya Shah",
+        "email": "demo.student006@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 18,
+        "name": "Reyansh Shah",
+        "email": "demo.student007@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 19,
+        "name": "Sara Shah",
+        "email": "demo.student008@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 20,
+        "name": "Kabir Shah",
+        "email": "demo.student009@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 21,
+        "name": "Ira Shah",
+        "email": "demo.student010@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 22,
+        "name": "Aarav Reddy",
+        "email": "demo.student011@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 23,
+        "name": "Anaya Reddy",
+        "email": "demo.student012@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 24,
+        "name": "Ishaan Reddy",
+        "email": "demo.student013@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 25,
+        "name": "Myra Reddy",
+        "email": "demo.student014@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 26,
+        "name": "Vivaan Reddy",
+        "email": "demo.student015@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 27,
+        "name": "Aadhya Reddy",
+        "email": "demo.student016@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 28,
+        "name": "Reyansh Reddy",
+        "email": "demo.student017@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 29,
+        "name": "Sara Reddy",
+        "email": "demo.student018@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 30,
+        "name": "Kabir Reddy",
+        "email": "demo.student019@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 31,
+        "name": "Ira Reddy",
+        "email": "demo.student020@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 32,
+        "name": "Aarav Joshi",
+        "email": "demo.student021@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 33,
+        "name": "Anaya Joshi",
+        "email": "demo.student022@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 34,
+        "name": "Ishaan Joshi",
+        "email": "demo.student023@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 35,
+        "name": "Myra Joshi",
+        "email": "demo.student024@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 36,
+        "name": "Vivaan Joshi",
+        "email": "demo.student025@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 37,
+        "name": "Aadhya Joshi",
+        "email": "demo.student026@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 38,
+        "name": "Reyansh Joshi",
+        "email": "demo.student027@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 39,
+        "name": "Sara Joshi",
+        "email": "demo.student028@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 40,
+        "name": "Kabir Joshi",
+        "email": "demo.student029@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 41,
+        "name": "Ira Joshi",
+        "email": "demo.student030@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 42,
+        "name": "Aarav Khan",
+        "email": "demo.student031@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 43,
+        "name": "Anaya Khan",
+        "email": "demo.student032@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 44,
+        "name": "Ishaan Khan",
+        "email": "demo.student033@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 45,
+        "name": "Myra Khan",
+        "email": "demo.student034@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 46,
+        "name": "Vivaan Khan",
+        "email": "demo.student035@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 47,
+        "name": "Aadhya Khan",
+        "email": "demo.student036@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 48,
+        "name": "Reyansh Khan",
+        "email": "demo.student037@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 49,
+        "name": "Sara Khan",
+        "email": "demo.student038@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 50,
+        "name": "Kabir Khan",
+        "email": "demo.student039@example.com",
+        "role_id": 3,
+        "is_active": 1
+      },
+      {
+        "id": 51,
+        "name": "Ira Khan",
+        "email": "demo.student040@example.com",
+        "role_id": 3,
+        "is_active": 1
+      }
+    ],
+    "teachers": [
+      {
+        "id": 1,
+        "user_id": 2,
+        "employee_code": "TCH-101",
+        "qualification": "M.Sc. Mathematics",
+        "joined_on": "2023-06-15"
+      },
+      {
+        "id": 2,
+        "user_id": 3,
+        "employee_code": "TCH-102",
+        "qualification": "M.A. English",
+        "joined_on": "2024-08-20"
+      },
+      {
+        "id": 3,
+        "user_id": 6,
+        "employee_code": "TCH-103",
+        "qualification": "M.Sc. Physics",
+        "joined_on": "2025-06-15"
+      },
+      {
+        "id": 4,
+        "user_id": 7,
+        "employee_code": "TCH-104",
+        "qualification": "M.A. History",
+        "joined_on": "2025-06-15"
+      },
+      {
+        "id": 5,
+        "user_id": 8,
+        "employee_code": "TCH-105",
+        "qualification": "M.Sc. Biology",
+        "joined_on": "2025-06-15"
+      },
+      {
+        "id": 6,
+        "user_id": 9,
+        "employee_code": "TCH-106",
+        "qualification": "M.Com. Economics",
+        "joined_on": "2025-06-15"
+      },
+      {
+        "id": 7,
+        "user_id": 10,
+        "employee_code": "TCH-107",
+        "qualification": "M.A. Geography",
+        "joined_on": "2025-06-15"
+      },
+      {
+        "id": 8,
+        "user_id": 11,
+        "employee_code": "TCH-108",
+        "qualification": "M.Sc. Computer Science",
+        "joined_on": "2025-06-15"
+      }
+    ],
+    "students": [
+      {
+        "id": 1,
+        "user_id": 4,
+        "admission_no": "ADM-1001",
+        "gender": "male"
+      },
+      {
+        "id": 2,
+        "user_id": 5,
+        "admission_no": "ADM-1002",
+        "gender": "female"
+      },
+      {
+        "id": 3,
+        "user_id": 12,
+        "admission_no": "ADM-1100",
+        "gender": "male"
+      },
+      {
+        "id": 4,
+        "user_id": 13,
+        "admission_no": "ADM-1101",
+        "gender": "female"
+      },
+      {
+        "id": 5,
+        "user_id": 14,
+        "admission_no": "ADM-1102",
+        "gender": "male"
+      },
+      {
+        "id": 6,
+        "user_id": 15,
+        "admission_no": "ADM-1103",
+        "gender": "female"
+      },
+      {
+        "id": 7,
+        "user_id": 16,
+        "admission_no": "ADM-1104",
+        "gender": "male"
+      },
+      {
+        "id": 8,
+        "user_id": 17,
+        "admission_no": "ADM-1105",
+        "gender": "female"
+      },
+      {
+        "id": 9,
+        "user_id": 18,
+        "admission_no": "ADM-1106",
+        "gender": "male"
+      },
+      {
+        "id": 10,
+        "user_id": 19,
+        "admission_no": "ADM-1107",
+        "gender": "female"
+      },
+      {
+        "id": 11,
+        "user_id": 20,
+        "admission_no": "ADM-1108",
+        "gender": "male"
+      },
+      {
+        "id": 12,
+        "user_id": 21,
+        "admission_no": "ADM-1109",
+        "gender": "female"
+      },
+      {
+        "id": 13,
+        "user_id": 22,
+        "admission_no": "ADM-1110",
+        "gender": "male"
+      },
+      {
+        "id": 14,
+        "user_id": 23,
+        "admission_no": "ADM-1111",
+        "gender": "female"
+      },
+      {
+        "id": 15,
+        "user_id": 24,
+        "admission_no": "ADM-1112",
+        "gender": "male"
+      },
+      {
+        "id": 16,
+        "user_id": 25,
+        "admission_no": "ADM-1113",
+        "gender": "female"
+      },
+      {
+        "id": 17,
+        "user_id": 26,
+        "admission_no": "ADM-1114",
+        "gender": "male"
+      },
+      {
+        "id": 18,
+        "user_id": 27,
+        "admission_no": "ADM-1115",
+        "gender": "female"
+      },
+      {
+        "id": 19,
+        "user_id": 28,
+        "admission_no": "ADM-1116",
+        "gender": "male"
+      },
+      {
+        "id": 20,
+        "user_id": 29,
+        "admission_no": "ADM-1117",
+        "gender": "female"
+      },
+      {
+        "id": 21,
+        "user_id": 30,
+        "admission_no": "ADM-1118",
+        "gender": "male"
+      },
+      {
+        "id": 22,
+        "user_id": 31,
+        "admission_no": "ADM-1119",
+        "gender": "female"
+      },
+      {
+        "id": 23,
+        "user_id": 32,
+        "admission_no": "ADM-1120",
+        "gender": "male"
+      },
+      {
+        "id": 24,
+        "user_id": 33,
+        "admission_no": "ADM-1121",
+        "gender": "female"
+      },
+      {
+        "id": 25,
+        "user_id": 34,
+        "admission_no": "ADM-1122",
+        "gender": "male"
+      },
+      {
+        "id": 26,
+        "user_id": 35,
+        "admission_no": "ADM-1123",
+        "gender": "female"
+      },
+      {
+        "id": 27,
+        "user_id": 36,
+        "admission_no": "ADM-1124",
+        "gender": "male"
+      },
+      {
+        "id": 28,
+        "user_id": 37,
+        "admission_no": "ADM-1125",
+        "gender": "female"
+      },
+      {
+        "id": 29,
+        "user_id": 38,
+        "admission_no": "ADM-1126",
+        "gender": "male"
+      },
+      {
+        "id": 30,
+        "user_id": 39,
+        "admission_no": "ADM-1127",
+        "gender": "female"
+      },
+      {
+        "id": 31,
+        "user_id": 40,
+        "admission_no": "ADM-1128",
+        "gender": "male"
+      },
+      {
+        "id": 32,
+        "user_id": 41,
+        "admission_no": "ADM-1129",
+        "gender": "female"
+      },
+      {
+        "id": 33,
+        "user_id": 42,
+        "admission_no": "ADM-1130",
+        "gender": "male"
+      },
+      {
+        "id": 34,
+        "user_id": 43,
+        "admission_no": "ADM-1131",
+        "gender": "female"
+      },
+      {
+        "id": 35,
+        "user_id": 44,
+        "admission_no": "ADM-1132",
+        "gender": "male"
+      },
+      {
+        "id": 36,
+        "user_id": 45,
+        "admission_no": "ADM-1133",
+        "gender": "female"
+      },
+      {
+        "id": 37,
+        "user_id": 46,
+        "admission_no": "ADM-1134",
+        "gender": "male"
+      },
+      {
+        "id": 38,
+        "user_id": 47,
+        "admission_no": "ADM-1135",
+        "gender": "female"
+      },
+      {
+        "id": 39,
+        "user_id": 48,
+        "admission_no": "ADM-1136",
+        "gender": "male"
+      },
+      {
+        "id": 40,
+        "user_id": 49,
+        "admission_no": "ADM-1137",
+        "gender": "female"
+      },
+      {
+        "id": 41,
+        "user_id": 50,
+        "admission_no": "ADM-1138",
+        "gender": "male"
+      },
+      {
+        "id": 42,
+        "user_id": 51,
+        "admission_no": "ADM-1139",
+        "gender": "female"
+      }
+    ],
+    "student_enrollments": [
+      {
+        "id": 1,
+        "student_id": 1,
+        "section_id": 1,
+        "academic_year_id": 1,
+        "roll_no": 1
+      },
+      {
+        "id": 2,
+        "student_id": 2,
+        "section_id": 1,
+        "academic_year_id": 1,
+        "roll_no": 2
+      },
+      {
+        "id": 3,
+        "student_id": 3,
+        "section_id": 1,
+        "academic_year_id": 1,
+        "roll_no": 3
+      },
+      {
+        "id": 4,
+        "student_id": 4,
+        "section_id": 1,
+        "academic_year_id": 1,
+        "roll_no": 4
+      },
+      {
+        "id": 5,
+        "student_id": 5,
+        "section_id": 1,
+        "academic_year_id": 1,
+        "roll_no": 5
+      },
+      {
+        "id": 6,
+        "student_id": 6,
+        "section_id": 1,
+        "academic_year_id": 1,
+        "roll_no": 6
+      },
+      {
+        "id": 7,
+        "student_id": 7,
+        "section_id": 1,
+        "academic_year_id": 1,
+        "roll_no": 7
+      },
+      {
+        "id": 8,
+        "student_id": 8,
+        "section_id": 2,
+        "academic_year_id": 1,
+        "roll_no": 1
+      },
+      {
+        "id": 9,
+        "student_id": 9,
+        "section_id": 2,
+        "academic_year_id": 1,
+        "roll_no": 2
+      },
+      {
+        "id": 10,
+        "student_id": 10,
+        "section_id": 2,
+        "academic_year_id": 1,
+        "roll_no": 3
+      },
+      {
+        "id": 11,
+        "student_id": 11,
+        "section_id": 2,
+        "academic_year_id": 1,
+        "roll_no": 4
+      },
+      {
+        "id": 12,
+        "student_id": 12,
+        "section_id": 2,
+        "academic_year_id": 1,
+        "roll_no": 5
+      },
+      {
+        "id": 13,
+        "student_id": 13,
+        "section_id": 3,
+        "academic_year_id": 1,
+        "roll_no": 1
+      },
+      {
+        "id": 14,
+        "student_id": 14,
+        "section_id": 3,
+        "academic_year_id": 1,
+        "roll_no": 2
+      },
+      {
+        "id": 15,
+        "student_id": 15,
+        "section_id": 3,
+        "academic_year_id": 1,
+        "roll_no": 3
+      },
+      {
+        "id": 16,
+        "student_id": 16,
+        "section_id": 3,
+        "academic_year_id": 1,
+        "roll_no": 4
+      },
+      {
+        "id": 17,
+        "student_id": 17,
+        "section_id": 3,
+        "academic_year_id": 1,
+        "roll_no": 5
+      },
+      {
+        "id": 18,
+        "student_id": 18,
+        "section_id": 4,
+        "academic_year_id": 1,
+        "roll_no": 1
+      },
+      {
+        "id": 19,
+        "student_id": 19,
+        "section_id": 4,
+        "academic_year_id": 1,
+        "roll_no": 2
+      },
+      {
+        "id": 20,
+        "student_id": 20,
+        "section_id": 4,
+        "academic_year_id": 1,
+        "roll_no": 3
+      },
+      {
+        "id": 21,
+        "student_id": 21,
+        "section_id": 4,
+        "academic_year_id": 1,
+        "roll_no": 4
+      },
+      {
+        "id": 22,
+        "student_id": 22,
+        "section_id": 4,
+        "academic_year_id": 1,
+        "roll_no": 5
+      },
+      {
+        "id": 23,
+        "student_id": 23,
+        "section_id": 5,
+        "academic_year_id": 1,
+        "roll_no": 1
+      },
+      {
+        "id": 24,
+        "student_id": 24,
+        "section_id": 5,
+        "academic_year_id": 1,
+        "roll_no": 2
+      },
+      {
+        "id": 25,
+        "student_id": 25,
+        "section_id": 5,
+        "academic_year_id": 1,
+        "roll_no": 3
+      },
+      {
+        "id": 26,
+        "student_id": 26,
+        "section_id": 5,
+        "academic_year_id": 1,
+        "roll_no": 4
+      },
+      {
+        "id": 27,
+        "student_id": 27,
+        "section_id": 5,
+        "academic_year_id": 1,
+        "roll_no": 5
+      },
+      {
+        "id": 28,
+        "student_id": 28,
+        "section_id": 6,
+        "academic_year_id": 1,
+        "roll_no": 1
+      },
+      {
+        "id": 29,
+        "student_id": 29,
+        "section_id": 6,
+        "academic_year_id": 1,
+        "roll_no": 2
+      },
+      {
+        "id": 30,
+        "student_id": 30,
+        "section_id": 6,
+        "academic_year_id": 1,
+        "roll_no": 3
+      },
+      {
+        "id": 31,
+        "student_id": 31,
+        "section_id": 6,
+        "academic_year_id": 1,
+        "roll_no": 4
+      },
+      {
+        "id": 32,
+        "student_id": 32,
+        "section_id": 6,
+        "academic_year_id": 1,
+        "roll_no": 5
+      },
+      {
+        "id": 33,
+        "student_id": 33,
+        "section_id": 7,
+        "academic_year_id": 1,
+        "roll_no": 1
+      },
+      {
+        "id": 34,
+        "student_id": 34,
+        "section_id": 7,
+        "academic_year_id": 1,
+        "roll_no": 2
+      },
+      {
+        "id": 35,
+        "student_id": 35,
+        "section_id": 7,
+        "academic_year_id": 1,
+        "roll_no": 3
+      },
+      {
+        "id": 36,
+        "student_id": 36,
+        "section_id": 7,
+        "academic_year_id": 1,
+        "roll_no": 4
+      },
+      {
+        "id": 37,
+        "student_id": 37,
+        "section_id": 7,
+        "academic_year_id": 1,
+        "roll_no": 5
+      },
+      {
+        "id": 38,
+        "student_id": 38,
+        "section_id": 8,
+        "academic_year_id": 1,
+        "roll_no": 1
+      },
+      {
+        "id": 39,
+        "student_id": 39,
+        "section_id": 8,
+        "academic_year_id": 1,
+        "roll_no": 2
+      },
+      {
+        "id": 40,
+        "student_id": 40,
+        "section_id": 8,
+        "academic_year_id": 1,
+        "roll_no": 3
+      },
+      {
+        "id": 41,
+        "student_id": 41,
+        "section_id": 8,
+        "academic_year_id": 1,
+        "roll_no": 4
+      },
+      {
+        "id": 42,
+        "student_id": 42,
+        "section_id": 8,
+        "academic_year_id": 1,
+        "roll_no": 5
+      }
+    ],
+    "parent_students": [],
+    "parents": [],
+    "exams": [
+      {
+        "id": 1,
+        "academic_year_id": 1,
+        "class_id": 1,
+        "name": "Unit Test 1",
+        "start_date": "2026-10-03",
+        "end_date": "2026-10-26"
+      }
+    ],
+    "exam_schedules": [
+      {
+        "id": 1,
+        "exam_id": 1,
+        "subject_id": 1,
+        "exam_date": "2026-10-15",
+        "start_time": "09:00:00",
+        "max_marks": 100,
+        "pass_marks": 40
+      },
+      {
+        "id": 2,
+        "exam_id": 1,
+        "subject_id": 2,
+        "exam_date": "2026-10-17",
+        "start_time": "10:30:00",
+        "max_marks": 100,
+        "pass_marks": 40
+      }
+    ],
+    "marks": [
+      {
+        "id": 1,
+        "exam_schedule_id": 1,
+        "student_id": 1,
+        "marks_obtained": 86,
+        "is_absent": 0,
+        "entered_by": 1
+      },
+      {
+        "id": 2,
+        "exam_schedule_id": 1,
+        "student_id": 2,
+        "marks_obtained": 72,
+        "is_absent": 0,
+        "entered_by": 1
+      },
+      {
+        "id": 3,
+        "exam_schedule_id": 2,
+        "student_id": 1,
+        "marks_obtained": 89,
+        "is_absent": 0,
+        "entered_by": 1
+      },
+      {
+        "id": 4,
+        "exam_schedule_id": 2,
+        "student_id": 2,
+        "marks_obtained": 76,
+        "is_absent": 0,
+        "entered_by": 1
+      }
+    ],
+    "attendance": [
+      {
+        "id": 1,
+        "student_id": 1,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 2,
+        "student_id": 2,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 3,
+        "student_id": 1,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 4,
+        "student_id": 2,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 5,
+        "student_id": 1,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 6,
+        "student_id": 2,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 7,
+        "student_id": 1,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 8,
+        "student_id": 2,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 9,
+        "student_id": 1,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 10,
+        "student_id": 2,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 11,
+        "student_id": 1,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 12,
+        "student_id": 2,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 13,
+        "student_id": 1,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 14,
+        "student_id": 2,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 15,
+        "student_id": 3,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 16,
+        "student_id": 3,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 17,
+        "student_id": 3,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 18,
+        "student_id": 3,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 19,
+        "student_id": 3,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 20,
+        "student_id": 3,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 21,
+        "student_id": 3,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 22,
+        "student_id": 4,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 23,
+        "student_id": 4,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 24,
+        "student_id": 4,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 25,
+        "student_id": 4,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 26,
+        "student_id": 4,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 27,
+        "student_id": 4,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 28,
+        "student_id": 4,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 29,
+        "student_id": 5,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 30,
+        "student_id": 5,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 31,
+        "student_id": 5,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 32,
+        "student_id": 5,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 33,
+        "student_id": 5,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 34,
+        "student_id": 5,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 35,
+        "student_id": 5,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 36,
+        "student_id": 6,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 37,
+        "student_id": 6,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 38,
+        "student_id": 6,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 39,
+        "student_id": 6,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 40,
+        "student_id": 6,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 41,
+        "student_id": 6,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 42,
+        "student_id": 6,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 43,
+        "student_id": 7,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 44,
+        "student_id": 7,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 45,
+        "student_id": 7,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 46,
+        "student_id": 7,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 47,
+        "student_id": 7,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 48,
+        "student_id": 7,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 49,
+        "student_id": 7,
+        "section_id": 1,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 50,
+        "student_id": 8,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 51,
+        "student_id": 8,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 52,
+        "student_id": 8,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 53,
+        "student_id": 8,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 54,
+        "student_id": 8,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 55,
+        "student_id": 8,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 56,
+        "student_id": 8,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 57,
+        "student_id": 9,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 58,
+        "student_id": 9,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 59,
+        "student_id": 9,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 60,
+        "student_id": 9,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 61,
+        "student_id": 9,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 62,
+        "student_id": 9,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 63,
+        "student_id": 9,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 64,
+        "student_id": 10,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 65,
+        "student_id": 10,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 66,
+        "student_id": 10,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 67,
+        "student_id": 10,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 68,
+        "student_id": 10,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 69,
+        "student_id": 10,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 70,
+        "student_id": 10,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 71,
+        "student_id": 11,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 72,
+        "student_id": 11,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 73,
+        "student_id": 11,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 74,
+        "student_id": 11,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 75,
+        "student_id": 11,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 76,
+        "student_id": 11,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 77,
+        "student_id": 11,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 78,
+        "student_id": 12,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 79,
+        "student_id": 12,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 80,
+        "student_id": 12,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 81,
+        "student_id": 12,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 82,
+        "student_id": 12,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 83,
+        "student_id": 12,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 84,
+        "student_id": 12,
+        "section_id": 2,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 85,
+        "student_id": 13,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 86,
+        "student_id": 13,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 87,
+        "student_id": 13,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 88,
+        "student_id": 13,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 89,
+        "student_id": 13,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 90,
+        "student_id": 13,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 91,
+        "student_id": 13,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 92,
+        "student_id": 14,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 93,
+        "student_id": 14,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 94,
+        "student_id": 14,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 95,
+        "student_id": 14,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 96,
+        "student_id": 14,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 97,
+        "student_id": 14,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 98,
+        "student_id": 14,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 99,
+        "student_id": 15,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 100,
+        "student_id": 15,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 101,
+        "student_id": 15,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 102,
+        "student_id": 15,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 103,
+        "student_id": 15,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 104,
+        "student_id": 15,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 105,
+        "student_id": 15,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 106,
+        "student_id": 16,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 107,
+        "student_id": 16,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 108,
+        "student_id": 16,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 109,
+        "student_id": 16,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 110,
+        "student_id": 16,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 111,
+        "student_id": 16,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 112,
+        "student_id": 16,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 113,
+        "student_id": 17,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 114,
+        "student_id": 17,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 115,
+        "student_id": 17,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 116,
+        "student_id": 17,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 117,
+        "student_id": 17,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 118,
+        "student_id": 17,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 119,
+        "student_id": 17,
+        "section_id": 3,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 120,
+        "student_id": 18,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 121,
+        "student_id": 18,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 122,
+        "student_id": 18,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 123,
+        "student_id": 18,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 124,
+        "student_id": 18,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 125,
+        "student_id": 18,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 126,
+        "student_id": 18,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 127,
+        "student_id": 19,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 128,
+        "student_id": 19,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 129,
+        "student_id": 19,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 130,
+        "student_id": 19,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 131,
+        "student_id": 19,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 132,
+        "student_id": 19,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 133,
+        "student_id": 19,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 134,
+        "student_id": 20,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 135,
+        "student_id": 20,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 136,
+        "student_id": 20,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 137,
+        "student_id": 20,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 138,
+        "student_id": 20,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 139,
+        "student_id": 20,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 140,
+        "student_id": 20,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 141,
+        "student_id": 21,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 142,
+        "student_id": 21,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 143,
+        "student_id": 21,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 144,
+        "student_id": 21,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 145,
+        "student_id": 21,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 146,
+        "student_id": 21,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 147,
+        "student_id": 21,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 148,
+        "student_id": 22,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 149,
+        "student_id": 22,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 150,
+        "student_id": 22,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 151,
+        "student_id": 22,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 152,
+        "student_id": 22,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 153,
+        "student_id": 22,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 154,
+        "student_id": 22,
+        "section_id": 4,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 155,
+        "student_id": 23,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 156,
+        "student_id": 23,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 157,
+        "student_id": 23,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 158,
+        "student_id": 23,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 159,
+        "student_id": 23,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 160,
+        "student_id": 23,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 161,
+        "student_id": 23,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 162,
+        "student_id": 24,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 163,
+        "student_id": 24,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 164,
+        "student_id": 24,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 165,
+        "student_id": 24,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 166,
+        "student_id": 24,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 167,
+        "student_id": 24,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 168,
+        "student_id": 24,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 169,
+        "student_id": 25,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 170,
+        "student_id": 25,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 171,
+        "student_id": 25,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 172,
+        "student_id": 25,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 173,
+        "student_id": 25,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 174,
+        "student_id": 25,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 175,
+        "student_id": 25,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 176,
+        "student_id": 26,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 177,
+        "student_id": 26,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 178,
+        "student_id": 26,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 179,
+        "student_id": 26,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 180,
+        "student_id": 26,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 181,
+        "student_id": 26,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 182,
+        "student_id": 26,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 183,
+        "student_id": 27,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 184,
+        "student_id": 27,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 185,
+        "student_id": 27,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 186,
+        "student_id": 27,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 187,
+        "student_id": 27,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 188,
+        "student_id": 27,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 189,
+        "student_id": 27,
+        "section_id": 5,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 190,
+        "student_id": 28,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 191,
+        "student_id": 28,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 192,
+        "student_id": 28,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 193,
+        "student_id": 28,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 194,
+        "student_id": 28,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 195,
+        "student_id": 28,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 196,
+        "student_id": 28,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 197,
+        "student_id": 29,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 198,
+        "student_id": 29,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 199,
+        "student_id": 29,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 200,
+        "student_id": 29,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 201,
+        "student_id": 29,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 202,
+        "student_id": 29,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 203,
+        "student_id": 29,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 204,
+        "student_id": 30,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 205,
+        "student_id": 30,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 206,
+        "student_id": 30,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 207,
+        "student_id": 30,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 208,
+        "student_id": 30,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 209,
+        "student_id": 30,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 210,
+        "student_id": 30,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 211,
+        "student_id": 31,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 212,
+        "student_id": 31,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 213,
+        "student_id": 31,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 214,
+        "student_id": 31,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 215,
+        "student_id": 31,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 216,
+        "student_id": 31,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 217,
+        "student_id": 31,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 218,
+        "student_id": 32,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 219,
+        "student_id": 32,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 220,
+        "student_id": 32,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 221,
+        "student_id": 32,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 222,
+        "student_id": 32,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 223,
+        "student_id": 32,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 224,
+        "student_id": 32,
+        "section_id": 6,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 225,
+        "student_id": 33,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 226,
+        "student_id": 33,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 227,
+        "student_id": 33,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 228,
+        "student_id": 33,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 229,
+        "student_id": 33,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 230,
+        "student_id": 33,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 231,
+        "student_id": 33,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 232,
+        "student_id": 34,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 233,
+        "student_id": 34,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 234,
+        "student_id": 34,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 235,
+        "student_id": 34,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 236,
+        "student_id": 34,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 237,
+        "student_id": 34,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 238,
+        "student_id": 34,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 239,
+        "student_id": 35,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 240,
+        "student_id": 35,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 241,
+        "student_id": 35,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 242,
+        "student_id": 35,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 243,
+        "student_id": 35,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 244,
+        "student_id": 35,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 245,
+        "student_id": 35,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 246,
+        "student_id": 36,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 247,
+        "student_id": 36,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 248,
+        "student_id": 36,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 249,
+        "student_id": 36,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 250,
+        "student_id": 36,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 251,
+        "student_id": 36,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 252,
+        "student_id": 36,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 253,
+        "student_id": 37,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 254,
+        "student_id": 37,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 255,
+        "student_id": 37,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 256,
+        "student_id": 37,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 257,
+        "student_id": 37,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 258,
+        "student_id": 37,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 259,
+        "student_id": 37,
+        "section_id": 7,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 260,
+        "student_id": 38,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 261,
+        "student_id": 38,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 262,
+        "student_id": 38,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 263,
+        "student_id": 38,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 264,
+        "student_id": 38,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 265,
+        "student_id": 38,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 266,
+        "student_id": 38,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 267,
+        "student_id": 39,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 268,
+        "student_id": 39,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 269,
+        "student_id": 39,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 270,
+        "student_id": 39,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 271,
+        "student_id": 39,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 272,
+        "student_id": 39,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 273,
+        "student_id": 39,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 274,
+        "student_id": 40,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 275,
+        "student_id": 40,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 276,
+        "student_id": 40,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 277,
+        "student_id": 40,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 278,
+        "student_id": 40,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 279,
+        "student_id": 40,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 280,
+        "student_id": 40,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 281,
+        "student_id": 41,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 282,
+        "student_id": 41,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 283,
+        "student_id": 41,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 284,
+        "student_id": 41,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 285,
+        "student_id": 41,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 286,
+        "student_id": 41,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 287,
+        "student_id": 41,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 288,
+        "student_id": 42,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 289,
+        "student_id": 42,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 290,
+        "student_id": 42,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 291,
+        "student_id": 42,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 292,
+        "student_id": 42,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 293,
+        "student_id": 42,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 294,
+        "student_id": 42,
+        "section_id": 8,
+        "subject_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "late",
+        "marked_by": 1
+      }
+    ],
+    "teacher_attendance": [
+      {
+        "id": 1,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 2,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 3,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-29",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 4,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 5,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 6,
+        "teacher_id": 1,
+        "attendance_date": "2026-11-01",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 7,
+        "teacher_id": 1,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 8,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 9,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-28",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 10,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 11,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 12,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 13,
+        "teacher_id": 2,
+        "attendance_date": "2026-11-01",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 14,
+        "teacher_id": 2,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 15,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-04",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 16,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-05",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 17,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-06",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 18,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-07",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 19,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-08",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 20,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-09",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 21,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-10",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 22,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-11",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 23,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-12",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 24,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-13",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 25,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-14",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 26,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-15",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 27,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-16",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 28,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-17",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 29,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-18",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 30,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-19",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 31,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-20",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 32,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-21",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 33,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-22",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 34,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-23",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 35,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-24",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 36,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-25",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 37,
+        "teacher_id": 1,
+        "attendance_date": "2026-10-26",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 45,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-04",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 46,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-05",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 47,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-06",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 48,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-07",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 49,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-08",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 50,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-09",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 51,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-10",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 52,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-11",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 53,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-12",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 54,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-13",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 55,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-14",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 56,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-15",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 57,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-16",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 58,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-17",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 59,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-18",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 60,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-19",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 61,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-20",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 62,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-21",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 63,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-22",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 64,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-23",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 65,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-24",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 66,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-25",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 67,
+        "teacher_id": 2,
+        "attendance_date": "2026-10-26",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 75,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-04",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 76,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-05",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 77,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-06",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 78,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-07",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 79,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-08",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 80,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-09",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 81,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-10",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 82,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-11",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 83,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-12",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 84,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-13",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 85,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-14",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 86,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-15",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 87,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-16",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 88,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-17",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 89,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-18",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 90,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-19",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 91,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-20",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 92,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-21",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 93,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-22",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 94,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-23",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 95,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-24",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 96,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-25",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 97,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-26",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 98,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-27",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 99,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 100,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-29",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 101,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 102,
+        "teacher_id": 3,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 103,
+        "teacher_id": 3,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 104,
+        "teacher_id": 3,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 105,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-04",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 106,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-05",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 107,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-06",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 108,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-07",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 109,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-08",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 110,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-09",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 111,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-10",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 112,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-11",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 113,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-12",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 114,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-13",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 115,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-14",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 116,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-15",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 117,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-16",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 118,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-17",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 119,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-18",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 120,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-19",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 121,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-20",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 122,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-21",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 123,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-22",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 124,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-23",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 125,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-24",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 126,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-25",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 127,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-26",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 128,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 129,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-28",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 130,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 131,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 132,
+        "teacher_id": 4,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 133,
+        "teacher_id": 4,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 134,
+        "teacher_id": 4,
+        "attendance_date": "2026-11-02",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 135,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-04",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 136,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-05",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 137,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-06",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 138,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-07",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 139,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-08",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 140,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-09",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 141,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-10",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 142,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-11",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 143,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-12",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 144,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-13",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 145,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-14",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 146,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-15",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 147,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-16",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 148,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-17",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 149,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-18",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 150,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-19",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 151,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-20",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 152,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-21",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 153,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-22",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 154,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-23",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 155,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-24",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 156,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-25",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 157,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-26",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 158,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-27",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 159,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 160,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 161,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 162,
+        "teacher_id": 5,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 163,
+        "teacher_id": 5,
+        "attendance_date": "2026-11-01",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 164,
+        "teacher_id": 5,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 165,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-04",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 166,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-05",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 167,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-06",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 168,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-07",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 169,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-08",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 170,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-09",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 171,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-10",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 172,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-11",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 173,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-12",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 174,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-13",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 175,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-14",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 176,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-15",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 177,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-16",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 178,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-17",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 179,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-18",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 180,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-19",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 181,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-20",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 182,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-21",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 183,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-22",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 184,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-23",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 185,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-24",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 186,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-25",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 187,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-26",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 188,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 189,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 190,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 191,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 192,
+        "teacher_id": 6,
+        "attendance_date": "2026-10-31",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 193,
+        "teacher_id": 6,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 194,
+        "teacher_id": 6,
+        "attendance_date": "2026-11-02",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 195,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-04",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 196,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-05",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 197,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-06",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 198,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-07",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 199,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-08",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 200,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-09",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 201,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-10",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 202,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-11",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 203,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-12",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 204,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-13",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 205,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-14",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 206,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-15",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 207,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-16",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 208,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-17",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 209,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-18",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 210,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-19",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 211,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-20",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 212,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-21",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 213,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-22",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 214,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-23",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 215,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-24",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 216,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-25",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 217,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-26",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 218,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 219,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 220,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-29",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 221,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-30",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 222,
+        "teacher_id": 7,
+        "attendance_date": "2026-10-31",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 223,
+        "teacher_id": 7,
+        "attendance_date": "2026-11-01",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 224,
+        "teacher_id": 7,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 225,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-04",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 226,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-05",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 227,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-06",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 228,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-07",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 229,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-08",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 230,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-09",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 231,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-10",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 232,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-11",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 233,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-12",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 234,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-13",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 235,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-14",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 236,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-15",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 237,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-16",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 238,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-17",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 239,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-18",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 240,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-19",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 241,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-20",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 242,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-21",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 243,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-22",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 244,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-23",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 245,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-24",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 246,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-25",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 247,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-26",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 248,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-27",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 249,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-28",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 250,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-29",
+        "status": "late",
+        "marked_by": 1
+      },
+      {
+        "id": 251,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-30",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 252,
+        "teacher_id": 8,
+        "attendance_date": "2026-10-31",
+        "status": "absent",
+        "marked_by": 1
+      },
+      {
+        "id": 253,
+        "teacher_id": 8,
+        "attendance_date": "2026-11-01",
+        "status": "present",
+        "marked_by": 1
+      },
+      {
+        "id": 254,
+        "teacher_id": 8,
+        "attendance_date": "2026-11-02",
+        "status": "present",
+        "marked_by": 1
+      }
+    ],
+    "fee_structures": [],
+    "fee_payments": [],
+    "notices": [],
+    "events": [],
+    "assignments": [],
+    "timetable": []
+  }
+}
