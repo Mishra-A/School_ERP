@@ -1,7 +1,7 @@
 # School ERP
 
 Role-based school management web app (Admin, Teacher, Student, Parent).
-Stack: Node.js + Express, MySQL, vanilla JS, Bootstrap 5, Chart.js.
+Stack: Node.js + Express, SQLite, vanilla JS, Bootstrap 5, Chart.js.
 
 ## Status
 
@@ -16,21 +16,19 @@ Stack: Node.js + Express, MySQL, vanilla JS, Bootstrap 5, Chart.js.
 
 ## Setup
 
-Requires Node 18+. Local development defaults to an embedded SQLite database; MySQL 8 (or MariaDB 10.5+) remains available for production and automated tests.
+Requires Node 18+. The database is **SQLite** (a single file; no server to install).
 
 ```bash
 npm install
 cp .env.example .env          # then set SESSION_SECRET and ADMIN_*
-npm run db:migrate            # initializes the selected database and applies safe schema updates
+npm run db:migrate            # initializes the SQLite database and applies safe schema updates
 npm run db:seed               # roles, default grade scale, first admin (safe to re-run)
 npm start                     # http://localhost:3000
 ```
 
-For a local demo, leave `DB_DRIVER` unset (or set it to `sqlite`); the database is stored at `backend/data/school-erp.sqlite` and is ignored by Git. To use MySQL, set `DB_DRIVER=mysql` and configure `DB_*`. The existing MySQL database is not converted or modified by switching the driver.
+The database file is `backend/data/school-erp.sqlite` locally. On a hosted service (Render), set `SQLITE_DB_PATH=/var/data/school_erp.sqlite` and mount a persistent disk at `/var/data` so records survive restarts and redeploys. See `docs/DEPLOYMENT.md`.
 
-For a temporary Render demo with synthetic data only, explicitly set `DB_DRIVER=sqlite` and `ALLOW_EPHEMERAL_SQLITE=true`; the Render free filesystem may reset on restart or redeploy. See `docs/DEPLOYMENT.md` for the build command and limitations.
-
-Local runs use SQLite by default and do not require MySQL. Generate a session secret: `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`. To explicitly use MySQL locally, set `DB_DRIVER=mysql` and configure the `DB_*` values.
+MySQL 8 (or MariaDB 10.5+) remains available for local testing only: set `DB_DRIVER=mysql` and configure the `DB_*` values. It is not used in production and does not affect the SQLite database.
 
 The seed creates an idempotent demo roster for the current academic year (students, teachers, classes, sections and recent attendance) so the dashboards are populated. Test runs skip demo school data so API fixtures remain isolated. Demo accounts use sample credentials; change passwords before exposing the app publicly.
 

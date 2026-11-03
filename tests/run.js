@@ -1,23 +1,25 @@
 // Runs every suite in tests/api against a throwaway database and a throwaway server.
-//   npm test               all suites
+//   npm test               all suites (SQLite by default)
 //   npm test -- phase5     only suites whose name contains "phase5"
+//   npm test -- --mysql    use a throwaway MySQL database instead
 //
-// Safety: the database used is always "<DB_NAME>_test" (never your real one), and uploads go to a temp folder.
+// Safety: the SQLite database is always a throwaway temp file, and uploads go to a temp folder.
+// The MySQL database used is always "<DB_NAME>_test" (never your real one).
+
 require('dotenv').config();
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const http = require('http');
 const { spawn, spawnSync } = require('child_process');
-const mysql = require('mysql2/promise');
 
 const ROOT = path.join(__dirname, '..');
 const PORT = Number(process.env.TEST_PORT) || 3999;
 const REAL_DB = process.env.DB_NAME || 'school_erp';
 const TEST_DB = `${REAL_DB.replace(/_test$/, '')}_test`;
-const DB_DRIVER = process.argv.includes('--sqlite') || process.env.TEST_DB_DRIVER === 'sqlite' ? 'sqlite' : 'mysql';
+const DB_DRIVER = process.argv.includes('--mysql') || process.env.TEST_DB_DRIVER === 'mysql' ? 'mysql' : 'sqlite';
 const SQLITE_TEST_PATH = path.join(os.tmpdir(), `school-erp-test-${process.pid}.sqlite`);
-const filter = process.argv.slice(2).find((arg) => arg !== '--sqlite');
+const filter = process.argv.slice(2).find((arg) => arg !== '--mysql' && arg !== '--sqlite');
 
 if (DB_DRIVER === 'mysql' && !TEST_DB.endsWith('_test')) { console.error('Refusing to run: test database name must end in _test.'); process.exit(1); }
 
@@ -41,6 +43,7 @@ async function resetDatabase() {
     for (const suffix of ['', '-wal', '-shm']) fs.rmSync(`${SQLITE_TEST_PATH}${suffix}`, { force: true });
     return;
   }
+  const mysql = require('mysql2/promise');
   const c = await mysql.createConnection({
     host: process.env.DB_HOST || 'localhost', port: Number(process.env.DB_PORT) || 3306,
     user: process.env.DB_USER || 'root', password: process.env.DB_PASSWORD || '',

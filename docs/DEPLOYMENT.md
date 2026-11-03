@@ -4,7 +4,7 @@ This guide covers running the app for real users: starting it reliably, HTTPS, e
 
 ## 1. What you need
 
-- A computer or server that stays on during school hours (Windows or Linux), with **Node.js 18+** and **MySQL 8** (or MariaDB 10.5+).
+- A computer or server that stays on during school hours (Windows or Linux), with **Node.js 18+**. The database is **SQLite** (a single file, no server to install).
 - A domain or a fixed address on the school network, for example `https://erp.yourschool.in` or `http://192.168.1.10:3000`.
 
 For a school-office computer on the local network, you can skip HTTPS and use the school's Wi-Fi/LAN. For access from the internet, use HTTPS (section 4).
@@ -14,7 +14,7 @@ For a school-office computer on the local network, you can skip HTTPS and use th
 ```bash
 npm install
 cp .env.example .env        # Windows: copy .env.example .env
-# edit .env: SESSION_SECRET, DB_*, ADMIN_*, SCHOOL_NAME, APP_URL
+# edit .env: SESSION_SECRET, SQLITE_DB_PATH, ADMIN_*, SCHOOL_NAME, APP_URL
 npm run db:migrate
 npm run db:seed
 ```
@@ -22,11 +22,9 @@ npm run db:seed
 Set `NODE_ENV=production` in `.env` for real use. This makes login cookies `secure` (HTTPS only), so only do it once HTTPS works.
 Without HTTPS (LAN only), keep `NODE_ENV=development`.
 
-For Render, set `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, and `DB_NAME` to the hosted MySQL provider's connection details. Never leave `DB_HOST=localhost` in a hosted service; production startup rejects local database hosts. Set `DB_SSL=true` when the provider requires TLS. Render is detected from its platform environment and trusts one proxy hop for secure cookies and client IP rate limiting. Configure the Render health check path as `/readyz`; `/healthz` checks only that the process is alive, while `/readyz` also verifies the database connection. Notification cleanup is disabled in production unless `NOTIFICATION_CLEANUP_ENABLED=true` is explicitly set.
+**Render:** SQLite is the single active database engine. Mount a **persistent disk** at `/var/data` (Render Dashboard > Settings > File System > Add), then set `SQLITE_DB_PATH=/var/data/school_erp.sqlite` as an environment variable. This is what keeps student, teacher, attendance and fee records alive across restarts and redeploys. Render is detected from its platform environment and trusts one proxy hop for secure cookies and client IP rate limiting. Configure the Render health check path as `/readyz`; `/healthz` checks only that the process is alive, while `/readyz` also verifies the database connection. Notification cleanup is disabled in production unless `NOTIFICATION_CLEANUP_ENABLED=true` is explicitly set.
 
-For a **temporary dummy-data Render demo without MySQL**, set `DB_DRIVER=sqlite` and `ALLOW_EPHEMERAL_SQLITE=true`. Set the build command to `npm install && npm run db:migrate && npm run db:seed`, and the start command to `npm start`. Provide `SESSION_SECRET`, `ADMIN_NAME`, `ADMIN_EMAIL`, and a strong `ADMIN_PASSWORD` as Render environment variables; leave `SQLITE_PATH` unset to use `backend/data/school-erp.sqlite`. This creates demo data in the build's SQLite file. Render's free filesystem is ephemeral: user changes and uploads may disappear on restart, spin-down, or redeploy. Do not use this mode for real school records; use MySQL with persistent backups for production.
-
-Before running `npm run db:migrate` against an existing production database, take a backup and inspect pending migrations. Migrations 001-004 are additive, but migration 003 sets `notified_at` on existing notices. Do not run `npm run db:seed` against production unless you have verified its effects and explicitly intend to create initial accounts/settings.
+The database file is created automatically by `npm run db:migrate` (schema + migrations) and `npm run db:seed` (roles, grade scale, first admin). Both are safe to re-run: `db:migrate` only applies new migrations, and `db:seed` only creates the admin if it is missing. Do not run `db:seed` against a live production database unless you have verified its effects and explicitly intend to create initial accounts/settings.
 
 ## 3. Keeping it running
 
@@ -43,7 +41,7 @@ pm2 logs school-erp
 On Windows, `pm2 startup` does not work directly. Install `pm2-windows-startup` (`npm i -g pm2-windows-startup`, then `pm2-startup install`),
 or use Task Scheduler to run `pm2 resurrect` at logon.
 
-Make sure MySQL itself also starts with the computer (XAMPP: tick "Service" next to MySQL in the control panel).
+Make sure the **uploads folder** (`backend/uploads`, or `UPLOAD_DIR`) is also on the persistent disk. On Render that is the same `/var/data` mount: set `UPLOAD_DIR=/var/data/uploads` so uploads survive restarts.
 
 ## 4. HTTPS (needed for internet access)
 

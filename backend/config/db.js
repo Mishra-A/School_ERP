@@ -1,23 +1,31 @@
 require('dotenv').config();
+const path = require('path');
 
 const isRender = process.env.RENDER === 'true' || Boolean(process.env.RENDER_SERVICE_ID || process.env.RENDER_EXTERNAL_HOSTNAME);
 const isProduction = process.env.NODE_ENV === 'production' || isRender;
-const dbDriver = String(process.env.DB_DRIVER || (isProduction || process.env.NODE_ENV === 'test' ? 'mysql' : 'sqlite')).toLowerCase();
-const allowEphemeralSqlite = process.env.ALLOW_EPHEMERAL_SQLITE === 'true';
+
+// SQLite is the single active database engine. MySQL is available only when DB_DRIVER=mysql is set explicitly.
+const dbDriver = String(process.env.DB_DRIVER || 'sqlite').toLowerCase();
 
 if (!['mysql', 'sqlite'].includes(dbDriver)) throw new Error('DB_DRIVER must be either "mysql" or "sqlite".');
-if (isProduction && dbDriver === 'sqlite' && !allowEphemeralSqlite) {
-  throw new Error('Production SQLite requires ALLOW_EPHEMERAL_SQLITE=true; this mode can lose data on restart.');
-}
 
 if (dbDriver === 'sqlite') {
-  const path = require('path');
   const { createSqliteDatabase } = require('./sqlite');
-  const sqlitePath = process.env.SQLITE_PATH || path.join(__dirname, '..', 'data', 'school-erp.sqlite');
+  // SQLITE_DB_PATH is the canonical variable (Render persistent disk: /var/data/school_erp.sqlite).
+  // SQLITE_PATH is kept as a fallback for local development and existing configs.
+  const sqlitePath = process.env.SQLITE_DB_PATH || process.env.SQLITE_PATH || path.join(__dirname, '..', 'data', 'school-erp.sqlite');
   const pool = createSqliteDatabase(sqlitePath);
   const dbConfig = { driver: 'sqlite', path: sqlitePath };
-  if (isRender && allowEphemeralSqlite) {
-    console.warn(JSON.stringify({ level: 'warn', event: 'ephemeral_sqlite_enabled', message: 'Render local filesystem can reset on restart or redeploy; use only for demo data.' }));
+
+  if (isRender) {
+    const resolved = path.resolve(sqlitePath);
+    const isEphemeral = /^\/tmp\/|^\/var\/run\/|^\/app\/data$/.test(resolved) || resolved === '/data/school-erp.sqlite';
+    if (isEphemeral) {
+      console.warn(JSON.stringify({
+        level: 'warn', event: 'ephemeral_sqlite_path',
+        message: 'SQLITE_DB_PATH points to an ephemeral location. Mount a persistent disk (e.g. /var/data) so data survives restarts and redeploys.',
+      }));
+    }
   }
 
   async function withTransaction(fn) {
